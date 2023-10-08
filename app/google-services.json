@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "392693742375",
+    "project_id": "instagram-f5a31",
+    "storage_bucket": "instagram-f5a31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392693742375:android:f54645984271cad8824702",
+        "android_client_info": {
+          "package_name": "com.neatroots.instagram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi9T3WFu3n4sarFvLtAB8ecrn_bobwDJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
