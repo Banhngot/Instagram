@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Instagram"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home" />
+        <activity
             android:name=".SiginUpActivity"
             android:exported="false" />
         <activity

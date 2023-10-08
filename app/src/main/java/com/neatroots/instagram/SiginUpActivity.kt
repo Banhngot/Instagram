@@ -1,7 +1,9 @@
 package com.neatroots.instagram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
@@ -35,6 +37,8 @@ class SiginUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val text = "<font color=#000000>Already have an Account</font> <font color=#1E88E5>Login</font>"
+        binding.login.setText(Html.fromHtml(text))
         user = User()
         binding.signUpBtn.setOnClickListener{
             if(binding.name.editText?.text.toString().equals("") or
@@ -54,7 +58,8 @@ class SiginUpActivity : AppCompatActivity() {
                         user.password=binding.password.editText?.text.toString()
                         user.email=binding.email.editText?.text.toString()
                         Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).set(user).addOnSuccessListener {
-                            Toast.makeText(this@SiginUpActivity,"Login",Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@SiginUpActivity,HomeActivity::class.java))
+                            finish()
                         }
                     }else{
                         Toast.makeText(this@SiginUpActivity,result.exception?.localizedMessage,Toast.LENGTH_SHORT).show()
@@ -64,6 +69,10 @@ class SiginUpActivity : AppCompatActivity() {
         }
         binding.addImage.setOnClickListener{
             launcher.launch("image/*")
+        }
+        binding.login.setOnClickListener{
+            startActivity(Intent(this@SiginUpActivity,LoginActivity::class.java))
+            finish()
         }
     }
 }
