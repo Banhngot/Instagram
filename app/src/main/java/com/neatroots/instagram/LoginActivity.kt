@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(binding.root)
         binding.loginBtn.setOnClickListener{
             if(binding.email.editText?.text.toString().equals("") or
                 binding.pass.editText?.text.toString().equals("") ){
