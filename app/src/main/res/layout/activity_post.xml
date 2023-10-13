@@ -22,7 +22,7 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/select_image"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:scaleType="fitCenter"
         android:src="@drawable/image"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,12 +34,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/caption"
         android:layout_width="0dp"
-        app:boxStrokeColor="@color/pink"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:hint="Write a caption"
+        app:boxStrokeColor="@color/pink"
         app:layout_constraintEnd_toEndOf="@+id/select_image"
         app:layout_constraintStart_toStartOf="@+id/select_image"
         app:layout_constraintTop_toBottomOf="@+id/select_image">
@@ -59,7 +59,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/caption">
 
         <ImageView
             android:id="@+id/imageView3"
