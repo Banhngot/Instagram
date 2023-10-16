@@ -1,11 +1,13 @@
 package com.neatroots.instagram.Post
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.neatroots.instagram.HomeActivity
 import com.neatroots.instagram.Models.Post
 import com.neatroots.instagram.Ultils.POST
 import com.neatroots.instagram.Ultils.POST_FOLDER
@@ -50,11 +52,17 @@ class PostActivity : AppCompatActivity() {
             launcher.launch("image/*")
         }
 
+        binding.cancelButton.setOnClickListener{
+            startActivity(Intent(this@PostActivity,HomeActivity::class.java))
+            finish()
+        }
+
         binding.postButton.setOnClickListener {
             val post:Post= Post(imageUrl!!,binding.caption.editText?.text.toString())
 
             Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
                 Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
+                    startActivity(Intent(this@PostActivity,HomeActivity::class.java))
                     finish()
                 }
 
