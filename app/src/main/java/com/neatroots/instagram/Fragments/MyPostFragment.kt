@@ -43,8 +43,8 @@ class MyPostFragment : Fragment() {
         binding=FragmentMyPostBinding.inflate(inflater, container, false)
         var postList=ArrayList<Post>()
         var adapter=MyPostRvAdapter(requireContext(),postList)
-//        binding.rv.layoutManager=StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
-//        binding.rv.Adapter=adapter
+        binding.rv.layoutManager=StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
+        binding.rv.adapter=adapter
         Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).get().addOnSuccessListener {
             var tempList= arrayListOf<Post>()
             for (i in it.documents){
