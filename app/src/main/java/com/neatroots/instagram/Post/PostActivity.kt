@@ -44,6 +44,7 @@ class PostActivity : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
         getSupportActionBar()?.setDisplayShowHomeEnabled(true)
         binding.materialToolbar.setNavigationOnClickListener {
+            startActivity(Intent(this@PostActivity,HomeActivity::class.java))
             finish()
         }
 
