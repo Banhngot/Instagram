@@ -59,6 +59,7 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation ("com.makeramen:roundedimageview:2.3.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
 }
