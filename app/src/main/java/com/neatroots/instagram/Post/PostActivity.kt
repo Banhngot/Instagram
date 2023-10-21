@@ -66,8 +66,8 @@ class PostActivity : AppCompatActivity() {
             Firebase.firestore.collection(USER_NODE).document().get().addOnSuccessListener {
 
 
-                var user=it.toObject<User>()!!
-                val post:Post= Post(postUrl = imageUrl!!, caption = binding.caption.editText?.text.toString(), name=Firebase.auth.currentUser!!.uid,time=System.currentTimeMillis().toString())
+                var user=it.toObject<User>()
+                val post:Post= Post(postUrl = imageUrl!!, caption = binding.caption.editText?.text.toString(), name = Firebase.auth.currentUser!!.uid,time=System.currentTimeMillis().toString())
 
 
 
@@ -81,4 +81,5 @@ class PostActivity : AppCompatActivity() {
         }
     }
 }
+
 }
