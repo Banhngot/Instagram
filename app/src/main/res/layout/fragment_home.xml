@@ -39,7 +39,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
-                android:src="@tools:sample/avatars"
+                android:src="@drawable/user"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +55,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/imageView3"
                 app:layout_constraintEnd_toEndOf="@id/imageView3"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginHorizontal_bias="0.23"
+
                 app:layout_constraintTop_toBottomOf="@id/imageView3"
                 app:layout_constraintVertical_bias="0.13999999" />
 
@@ -82,6 +82,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
