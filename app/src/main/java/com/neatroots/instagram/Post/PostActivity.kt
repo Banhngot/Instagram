@@ -3,14 +3,18 @@ package com.neatroots.instagram.Post
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.neatroots.instagram.HomeActivity
 import com.neatroots.instagram.Models.Post
+import com.neatroots.instagram.Models.User
 import com.neatroots.instagram.Ultils.POST
 import com.neatroots.instagram.Ultils.POST_FOLDER
+import com.neatroots.instagram.Ultils.USER_NODE
 import com.neatroots.instagram.Ultils.USER_PROFILE_FOLDER
 import com.neatroots.instagram.Ultils.uploadImage
 
@@ -59,7 +63,13 @@ class PostActivity : AppCompatActivity() {
         }
 
         binding.postButton.setOnClickListener {
-            val post:Post= Post(imageUrl!!,binding.caption.editText?.text.toString())
+            Firebase.firestore.collection(USER_NODE).document().get().addOnSuccessListener {
+
+
+                var user=it.toObject<User>()!!
+                val post:Post= Post(postUrl = imageUrl!!, caption = binding.caption.editText?.text.toString(), name=Firebase.auth.currentUser!!.uid,time=System.currentTimeMillis().toString())
+
+
 
             Firebase.firestore.collection(POST).document().set(post).addOnSuccessListener {
                 Firebase.firestore.collection(Firebase.auth.currentUser!!.uid).document().set(post).addOnSuccessListener {
@@ -70,4 +80,5 @@ class PostActivity : AppCompatActivity() {
             }
         }
     }
+}
 }
