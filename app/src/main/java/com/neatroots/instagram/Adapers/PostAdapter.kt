@@ -10,6 +10,7 @@ import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import com.neatroots.instagram.CommentsActivity2
 import com.neatroots.instagram.Models.Post
 import com.neatroots.instagram.Models.User
 import com.neatroots.instagram.R
@@ -60,6 +61,11 @@ class PostAdapter(var context: Context, var postList: ArrayList<Post>) : Recycle
         holder.binding.csption.text=postList.get(position).caption
         holder.binding.like.setOnClickListener {
             holder.binding.like.setImageResource(R.drawable.heartred)
+        }
+
+        holder.binding.comment.setOnClickListener {
+            val intentComment  = Intent(context,CommentsActivity2::class.java)
+            context.startActivity(intentComment)
         }
 
     }
