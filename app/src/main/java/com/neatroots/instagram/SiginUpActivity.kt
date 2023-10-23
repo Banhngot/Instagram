@@ -37,7 +37,7 @@ class SiginUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val text = "<font color=#000000>Already have an Account</font> <font color=#1E88E5>Login</font>"
+        val text = "<font color=#000000>Already have an Account</font> <font color=#1E88E5>Logout</font>"
         binding.login.setText(Html.fromHtml(text))
         user = User()
         if(intent.hasExtra("MODE")){
